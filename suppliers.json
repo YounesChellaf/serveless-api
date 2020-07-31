@@ -16,6 +16,10 @@
     "address": {
       "country": "nl"
     },
+    "holidays": [
+      "2021-05-07",
+      "2021-05-08"
+    ],
     "carriers": [
       "PNL",
       "DPD",
@@ -27,6 +31,9 @@
     "address": {
       "country": "fr"
     },
+    "holidays": [
+      "2021-05-09"
+    ],
     "carriers": [
       "DHP"
     ]
