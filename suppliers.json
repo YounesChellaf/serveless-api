@@ -1,0 +1,34 @@
+[
+  {
+    "id": "KN",
+    "address": {
+      "country": "nl"
+    },
+    "carriers": [
+      "PNL",
+      "RTG",
+      "DHP",
+      "DHP_EXPRESS"
+    ]
+  },
+  {
+    "id": "TMB",
+    "address": {
+      "country": "nl"
+    },
+    "carriers": [
+      "PNL",
+      "DPD",
+      "DHP"
+    ]
+  },
+  {
+    "id": "FRS",
+    "address": {
+      "country": "fr"
+    },
+    "carriers": [
+      "DHP"
+    ]
+  }
+]
