@@ -1,0 +1,28 @@
+{
+  "name": "serverless-assignment",
+  "version": "1.0.0",
+  "description": "Very cool to take up this challenge!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./src --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/print-com/serverless-assignment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/print-com/serverless-assignment/issues"
+  },
+  "homepage": "https://gitlab.com/print-com/serverless-assignment#readme",
+  "devDependencies": {
+    "eslint": "^7.18.0"
+  },
+  "dependencies": {
+    "aws-serverless-express": "^3.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
