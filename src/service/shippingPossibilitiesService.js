@@ -1,107 +1,12 @@
 const helper= require('../utils/helpers.js');
+const fs = require('fs');
+const path = require('path')
 
-const carriers = [
-    {
-        "id": "PNL",
-        "name": "Post NL",
-        "price": 5,
-        "countries": ["nl", "be"]
-    },
-    {
-        "id": "DHP",
-        "name": "DHL",
-        "price": 5,
-        "countries": ["nl", "be", "fr"]
-    },
-    {
-        "id": "DHP_EXPRESS",
-        "name": "DHL ochtend levering",
-        "price": 7.5,
-        "countries": ["nl", "be"]
-    },
-    {
-        "id": "DPD",
-        "name": "DPD",
-        "price": 7,
-        "countries": ["nl", "fr"]
-    },
-    {
-        "id": "RTG",
-        "name": "Koerier",
-        "price": 25,
-        "countries": ["nl", "be"]
-    }
-]
-const countries = [
-    {
-        "id": "nl",
-        "holidays": [
-            "2021-05-05",
-            "2021-05-13",
-            "2021-05-23",
-            "2021-05-24"
-        ]
-    },
-    {
-        "id": "be",
-        "holidays": [
-            "2021-05-05",
-            "2021-05-13",
-            "2021-05-23",
-            "2021-05-24"
-        ]
-    },
-    {
-        "id": "fr",
-        "holidays": [
-            "2021-05-01",
-            "2021-05-08",
-            "2021-05-23",
-            "2021-05-24"
-        ]
-    }
-]
-const suppliers = [
-    {
-        "id": "KN",
-        "address": {
-            "country": "nl"
-        },
-        "carriers": [
-            "PNL",
-            "RTG",
-            "DHP",
-            "DHP_EXPRESS"
-        ]
-    },
-    {
-        "id": "TMB",
-        "address": {
-            "country": "nl"
-        },
-        "holidays": [
-            "2021-05-07",
-            "2021-05-08"
-        ],
-        "carriers": [
-            "PNL",
-            "DPD",
-            "DHP"
-        ]
-    },
-    {
-        "id": "FRS",
-        "address": {
-            "country": "fr"
-        },
-        "holidays": [
-            "2021-05-09"
-        ],
-        "carriers": [
-            "DHP"
-        ]
-    }
-]
+
+// Importing data from the mocks files with the fs package
+const carriers =  JSON.parse(fs.readFileSync(path.join(__dirname, '../mocks/carriers.json')));
+const countries = JSON.parse(fs.readFileSync(path.join(__dirname, '../mocks/countries.json')));
+const suppliers = JSON.parse(fs.readFileSync(path.join(__dirname, '../mocks/suppliers.json')));
 
 // A function to get the shipping possibilities for a specific date (one day)
 const getShippingPossibilities = (date) => {

@@ -7,6 +7,7 @@ const getDatesRange = (startDate, endDate) =>{
             date.setDate(date.getDate() + days);
             return date;
         };
+    // Here all the cases are managed (if end_date before start date or one of the dates are null then we return empty array)
     while (currentDate <= endDate) {
         dates.push(currentDate);
         currentDate = addDays.call(currentDate, 1);

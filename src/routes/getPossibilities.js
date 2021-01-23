@@ -4,10 +4,10 @@ const getShippingPossibilities = require('../service/shippingPossibilitiesServic
 
 const router = express.Router();
 
-router.post('/',(req,res) => {
+router.get('/',(req,res) => {
 
-    const startDate = new Date(req.body.start_date);
-    const endDate = new Date(req.body.end_date);
+    const startDate = new Date(req.query.start_date);
+    const endDate = new Date(req.query.end_date);
     const dateRange = helper.getDatesRange(startDate,endDate);
     const possibilities = [];
 
