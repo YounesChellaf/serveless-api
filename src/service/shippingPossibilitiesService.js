@@ -105,40 +105,42 @@ const suppliers = [
 
 // A function to get the shipping possibilities for a specific date (one day)
 const getShippingPossibilities = (date) => {
-    const BeNelux = ["nl","be","lu"];
-    const array_possibilities_per_date = [];
+    const shippingPossibilitiesPerDay = [];
     // Get different delivery possibilities for each supplier
     suppliers.map(supplier => {
-        var supplier_holidays = helper.convertArrayDate(helper.findByID(countries,supplier.address.country).holidays);
+        var supplierHolidays = helper.stringToDateArray(helper.findById(countries,supplier.address.country).holidays)
         // Get an array of holiday dates per supplier (supplier holiday + country hiliday)
-        if (supplier.holidays) supplier_holidays = supplier_holidays.concat(helper.convertArrayDate(supplier.holidays));
+        if (supplier.holidays) supplierHolidays = supplierHolidays.concat(helper.stringToDateArray(supplier.holidays))
         // if the supplier is on holiday => invalid date for shipping
-        if ( ! supplier_holidays.includes(date.getTime())) {
+        if( helper.isAvailableForShipment(supplierHolidays,date,supplier.address.country)) {
             supplier.carriers.map(carrier_id => {
-                const carrier = helper.findByID(carriers,carrier_id);
+                const carrier = helper.findById(carriers,carrier_id);
                 let i=0;
-                let valid_match = false;
+                let isShipped = false; // This boolean for returning only one shippement possiblity
                 // A loop for returning only one delivery possibility per carrier
-                while (i < carrier.countries.length && !valid_match){
-                    const carrier_holidays = helper.convertArrayDate(helper.findByID(countries,carrier.countries[i]).holidays);
-                    if (! carrier_holidays.includes(date.getTime()))  {
-                        const possibility_per_date= {
+                while (i < carrier.countries.length && !isShipped){
+                    const carrierHolidays = helper.stringToDateArray(helper.findById(countries,carrier.countries[i]).holidays)
+                    //if (! carrierHolidays.includes(date.getTime()))  {
+                    if (helper.isAvailableForShipment(carrierHolidays,date,carrier.countries[i])) {
+                        // A single shipping possibility
+                        const shippingPossibilty= {
                             supplier: supplier.id,
                             from: supplier.address.country,
                             carrier: carrier.id,
                             to: carrier.countries[i],
                             delivery_date: date.toDateString()
                         };
-                        array_possibilities_per_date.push(possibility_per_date);
-                        valid_match= true
+                        shippingPossibilitiesPerDay.push(shippingPossibilty);
+                        isShipped= true
                     }
                     i++
                 }
             })
         }
     });
-    return array_possibilities_per_date
-};
+    return shippingPossibilitiesPerDay
+}
+
 
 
 
