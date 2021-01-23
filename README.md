@@ -1,5 +1,5 @@
 # Print.com serverless API
-A serverless API that return a shipping possibilities in a range of dates, The project is developed in Node.js using the Lambda AWS function
+A serverless API that returns a shipping possibilities for a range of dates, The project is developed in Node.js using the Lambda AWS function
 
 ## The project requirements
 1. Use the serverless framework for lambda (AWS)
@@ -9,7 +9,7 @@ A serverless API that return a shipping possibilities in a range of dates, The p
 
 ## Getting started
 
-The project is deployed on AWS and you can check the results via this Postman link: https://www.getpostman.com/collections/0ca9ed8864e72b25b8dd
+The project is deployed on AWS and it's possible to check the results via this Postman link: https://www.getpostman.com/collections/0ca9ed8864e72b25b8dd
 The get request accept start_date and end_date as params.
 
 For code evaluation you can clone the repository using: 
@@ -18,5 +18,7 @@ For code evaluation you can clone the repository using:
     $ cd serveless-api
     $ npm install
     
-You can change the credentials of the serverless by overiding the key id and secret and deploy it if needed for AWS monitoring visualization 
+You can change the serverless credentials by overiding the key id and secret and deploy it again if needed for AWS dashboard visualization 
+
+I want to thank you for this opportunity to work in AWS and I will be happy to receive any feedback or possible improuvments
 
