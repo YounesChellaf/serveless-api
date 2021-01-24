@@ -9,8 +9,8 @@ A serverless API that returns a shipping possibilities for a range of dates, The
 
 ## Getting started
 
-The project is deployed on AWS and it's possible to check the results via this Postman link: https://www.getpostman.com/collections/0ca9ed8864e72b25b8dd
-The get request accept start_date and end_date as params.
+The project is deployed on AWS and it's possible to check the results via this Postman link: https://www.getpostman.com/collections/92bc45c2b3556be5658b
+The post request body contains start_date and end_date.
 
 For code evaluation you can clone the repository using: 
 
