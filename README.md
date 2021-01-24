@@ -18,6 +18,11 @@ For code evaluation you can clone the repository using:
     $ cd serveless-api
     $ npm install
     
+To run the unit tests (made with Mocha and chai) for the helper functions under the solder /src/utils/helpers.js. use the test command: 
+
+    $ npm run test
+  
+    
 You can change the serverless credentials by overiding the key id and secret and deploy it again if needed for AWS dashboard visualization 
 
 I want to thank you for this opportunity to work in AWS and I will be happy to receive any feedback or possible improuvments
